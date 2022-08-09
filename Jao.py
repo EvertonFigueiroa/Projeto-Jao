@@ -61,8 +61,8 @@ while True:
 		if frase.lower() == 'pare' or 'stop':
 			pygame.mixer.music.stop()
 			converVOZ('POXA TAVA TÃO BOM')
-			frase = ouvir_microfone()
-		input()
+		frase = ouvir_microfone()
+
 	elif frase.lower() == 'vou dormir' or 'vou dormi':
 		converVOZ('Bom descanso chefe!')
 		break
