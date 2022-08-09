@@ -1,14 +1,6 @@
-#pip install SpeechRecognition
-#A biblioteca speech recognition possui a dependencia com a biblioteca PyAudio,
-#por isso também precisamos instalá-la, com o comando.
-#pip install pyaudio
-
-
 import speech_recognition as sr
 import pygame
-#converso de texto para audio
 import pyttsx3
-from time import sleep
 
 
 def converVOZ(texto):
@@ -16,33 +8,33 @@ def converVOZ(texto):
 	engine.say(texto)
 	engine.runAndWait()
 
+
 print('-=-'*20)
 print(f'{"PROJETO JÃO":.^60}')
 print('-=-'*20)
+
 converVOZ('BEM-VINDO MEU PATRÃO, COMO POSSO AJUDAR')
 
 
 def ouvir_microfone():
-		# Habilita o microfone para ouvir o usuario
-		microfone = sr.Recognizer()
-		with sr.Microphone() as source:
-			# Chama a funcao de reducao de ruido disponivel na speech_recognition
-			microfone.adjust_for_ambient_noise(source)
-			# Avisa ao usuario que esta pronto para ouvir
-			print("Estou on...")
-			# Armazena a informacao de audio na variavel
-			audio = microfone.listen(source)
-			sleep(0.2)
-		try:
-			# Passa o audio para o reconhecedor de padroes do speech_recognition
-			frase = microfone.recognize_google(audio, language='pt-BR')
+	# Habilita o microfone para ouvir o usuario
+	microfone = sr.Recognizer()
+	with sr.Microphone() as source:
+		# Chama a funcao de reducao de ruido disponivel na speech_recognition
+		microfone.adjust_for_ambient_noise(source)
+		# Avisa ao usuario que esta pronto para ouvir
+		print("Estou on...")
+		# Armazena a informacao de audio na variavel
+		audio = microfone.listen(source)
+	try:
+		# Passa o audio para o reconhecedor de padroes do speech_recognition
+		frase = microfone.recognize_google(audio, language='pt-BR')
 
+	# Caso nao tenha reconhecido o padrao de fala, exibe esta mensagem
+	except sr.UnkownValueError:
+		print("Não entendi")
 
-		# Caso nao tenha reconhecido o padrao de fala, exibe esta mensagem
-		except sr.UnkownValueError:
-			print("Não entendi")
-
-		return frase
+	return frase
 
 
 frase = ouvir_microfone()
