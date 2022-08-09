@@ -1,2 +1,2 @@
-# Projeto-Jao
- Jão é um assistente virtual
+# Projeto Jão
+ **Jão** é um assistente *virtual* em desenvolvimento
