@@ -51,7 +51,7 @@ while True:
 		pygame.mixer.music.play()
 		pygame.event.wait()
 
-		resposta = str(input('Deseja para a música? [S/N]: '))
+		resposta = str(input('Deseja para a música? [S/N]: ')).strip()
 		if resposta in 'Ss':
 			pygame.mixer.music.stop()
 			converVOZ('POXA TAVA TÃO BOM')
