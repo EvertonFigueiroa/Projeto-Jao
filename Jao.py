@@ -49,15 +49,11 @@ while True:
 		pygame.mixer.music.load('tchuco.mp3')
 		pygame.mixer.music.set_volume(0.1)
 		pygame.mixer.music.play()
-<<<<<<< HEAD
 		pygame.event.wait()
 
 		resposta = str(input('Deseja para a música? [S/N]: ')).strip()
 		if resposta in 'Ss':
-=======
-		frase = ouvir_microfone()
-		if frase.lower() == 'pare' or 'stop':
->>>>>>> parent of afab5ee (Projeto Jão em desenvolvimento)
+			frase = ouvir_microfone()
 			pygame.mixer.music.stop()
 			converVOZ('POXA TAVA TÃO BOM')
 		frase = ouvir_microfone()
