@@ -49,13 +49,15 @@ while True:
 		pygame.mixer.music.load('tchuco.mp3')
 		pygame.mixer.music.set_volume(0.1)
 		pygame.mixer.music.play()
-		frase = ouvir_microfone()
-		if frase.lower() == 'pare' or 'stop':
+		pygame.event.wait()
+
+		resposta = str(input('Deseja para a música? [S/N]: '))
+		if resposta in 'Ss':
 			pygame.mixer.music.stop()
 			converVOZ('POXA TAVA TÃO BOM')
-		frase = ouvir_microfone()
+			frase = ouvir_microfone()
 
-	elif frase.lower() == 'vou dormir' or 'vou dormi':
+	elif frase.lower() == 'vou dormir':
 		converVOZ('Bom descanso chefe!')
 		break
 	else:
