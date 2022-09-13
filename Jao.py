@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import pygame
 import pyttsx3
+import os
 
 
 def converVOZ(texto):
@@ -39,10 +40,17 @@ def ouvir_microfone():
 
 frase = ouvir_microfone()
 
+
 while True:
 	if frase.lower() == 'oi':
 		converVOZ('Oi, chefe')
 		frase = ouvir_microfone()
+
+	elif frase.lower() == 'jogo 1':
+			os.system('C:/Users/Everton/Desktop/Fortnite.url')
+			print('ABRINDO O JOGO...')
+			frase = ouvir_microfone()
+
 	elif frase.lower() == 'toca a boa':
 		converVOZ('É pra já')
 		pygame.init()
@@ -50,17 +58,17 @@ while True:
 		pygame.mixer.music.set_volume(0.1)
 		pygame.mixer.music.play()
 		pygame.event.wait()
-
-		resposta = str(input('Deseja para a música? [S/N]: ')).strip()
-		if resposta in 'Ss':
-			frase = ouvir_microfone()
-			pygame.mixer.music.stop()
-			converVOZ('POXA TAVA TÃO BOM')
 		frase = ouvir_microfone()
 
-	elif frase.lower() == 'vou dormir' or 'vou dormi':
+	elif frase.lower() == 'pare':
+		pygame.mixer.music.stop()
+		converVOZ('POXA TAVA TÃO BOM')
+		frase = ouvir_microfone()
+
+	elif frase.lower() == 'vou dormi':
 		converVOZ('Bom descanso chefe!')
 		break
 	else:
 		converVOZ('Fala pra fora que eu Não entendi')
 		frase = ouvir_microfone()
+
